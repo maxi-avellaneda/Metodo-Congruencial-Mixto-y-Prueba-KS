@@ -22,6 +22,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         //this.repaint();
          setIconImage (new ImageIcon(getClass().getResource("/Imagenes/analisis.jpg")).getImage());
          pruebaKS.setEnabled(false);
+         pruebaKS.setVisible(false);
     }
 
     
@@ -289,6 +290,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         Variables variable = new Variables(x0,b,d,Ui,Ni);
         lista.add(variable);*/
         for(int i=0;i<iter;i++){
+            
             b=(a*xi)+c;
             d=b%m;
             Ui=d/m;
@@ -297,6 +299,13 @@ public class pantallaPrincipal extends javax.swing.JFrame {
             Variables variable = new Variables(xi,b,d,Ui,Ni);
             xi=Ni;
             lista.add(variable);
+            
+            formato1.format(b);
+            formato1.format(d);
+            formato1.format(Ui);
+            formato1.format(Ni);
+            
+            
         }
         //Variables variable = new Variables(x0,b,d,Ui,Ni);
         //lista.add(variable);
@@ -307,7 +316,10 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         //formato1.format(Ni);
         
         mostrar(iter);
+        Generar.setEnabled(false);
         pruebaKS.setEnabled(true);
+        Generar.setVisible(false);
+        pruebaKS.setVisible(true);
        }
         
     }//GEN-LAST:event_GenerarActionPerformed
@@ -337,6 +349,11 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         vblC.setText(null);
         vblIteracion.setText(null);
         vblM.setText(null);
+        Generar.setEnabled(true);
+        pruebaKS.setEnabled(false);
+        Generar.setVisible(true);
+        pruebaKS.setVisible(false);
+        
     }//GEN-LAST:event_BorrarActionPerformed
 
     private void textoX0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoX0ActionPerformed

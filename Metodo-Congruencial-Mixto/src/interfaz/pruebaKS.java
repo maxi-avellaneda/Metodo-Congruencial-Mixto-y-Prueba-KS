@@ -2,6 +2,7 @@
 package interfaz;
 
 import java.awt.Image;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.Icon;
@@ -27,6 +28,11 @@ public class pruebaKS extends javax.swing.JFrame{
         setIconImage (new ImageIcon(getClass().getResource("/Imagenes/analisis.jpg")).getImage());
         Double Ui,Fn,FnUi,mod,con;
         Double j=1.0;
+        
+        DecimalFormat formato1= new DecimalFormat ("#.00");
+        
+        
+        
         for(int i=0;i<lista.size();i++){
             Ui=lista.get(i).getUi();
             
@@ -37,6 +43,11 @@ public class pruebaKS extends javax.swing.JFrame{
             mod=Math.abs(FnUi);
             KS ks = new KS(Ui,con,Fn,FnUi,mod);
             lista2.add(ks);
+            
+            formato1.format(Ui);
+            formato1.format(Fn);
+            formato1.format(FnUi);
+            formato1.format(mod);
             
         }
         Collections.sort(lista2);
@@ -112,6 +123,8 @@ public class pruebaKS extends javax.swing.JFrame{
             }
         });
 
+        tablaaa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        tablaaa.setForeground(new java.awt.Color(0, 0, 255));
         tablaaa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
