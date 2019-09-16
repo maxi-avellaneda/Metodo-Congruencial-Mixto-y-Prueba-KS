@@ -5,6 +5,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import metodo.congruencial.mixto.Variables;
 
 
@@ -18,6 +19,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         Icon icono= new ImageIcon(imagen.getImage().getScaledInstance(logoFacu.getWidth(),logoFacu.getHeight(), Image.SCALE_DEFAULT));
         logoFacu.setIcon(icono);
         //this.repaint();
+         setIconImage (new ImageIcon(getClass().getResource("/Imagenes/analisis.jpg")).getImage());
     }
 
     
@@ -54,6 +56,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        Borrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/borrar_1.png"))); // NOI18N
         Borrar.setText("Borrar");
         Borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,16 +83,43 @@ public class pantallaPrincipal extends javax.swing.JFrame {
                 textoX0ActionPerformed(evt);
             }
         });
+        textoX0.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoX0KeyTyped(evt);
+            }
+        });
 
         vblA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vblAActionPerformed(evt);
             }
         });
+        vblA.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                vblAKeyTyped(evt);
+            }
+        });
+
+        vblC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                vblCKeyTyped(evt);
+            }
+        });
 
         vblM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vblMActionPerformed(evt);
+            }
+        });
+        vblM.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                vblMKeyTyped(evt);
+            }
+        });
+
+        vblIteracion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                vblIteracionKeyTyped(evt);
             }
         });
 
@@ -119,8 +149,14 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Generar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Borrar)
+                        .addGap(12, 12, 12))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
@@ -134,13 +170,8 @@ public class pantallaPrincipal extends javax.swing.JFrame {
                             .addComponent(vblA)
                             .addComponent(vblC)
                             .addComponent(vblM)
-                            .addComponent(vblIteracion, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Generar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
+                            .addComponent(vblIteracion, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)))
                 .addComponent(jScrollPane1)
                 .addGap(36, 36, 36))
             .addGroup(layout.createSequentialGroup()
@@ -196,7 +227,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
                         .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Generar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(Borrar)))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -290,8 +321,123 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         pruebaKS prueba = new pruebaKS(lista,iter);
         prueba.setVisible(true);
-        dispose();
+       // dispose();
     }//GEN-LAST:event_pruebaKSActionPerformed
+
+    private void textoX0KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoX0KeyTyped
+        // TODO add your handling code here:
+             char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         textoX0.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         textoX0.setCursor(null);
+     }
+     
+    }//GEN-LAST:event_textoX0KeyTyped
+
+    private void vblAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_vblAKeyTyped
+        // TODO add your handling code here:
+              char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         vblA.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         vblA.setCursor(null);
+     }
+     
+    }//GEN-LAST:event_vblAKeyTyped
+
+    private void vblCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_vblCKeyTyped
+        // TODO add your handling code here:
+             char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         vblC.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         vblC.setCursor(null);
+     }
+     
+    }//GEN-LAST:event_vblCKeyTyped
+
+    private void vblMKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_vblMKeyTyped
+        // TODO add your handling code here:
+             char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         vblM.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         vblM.setCursor(null);
+     }
+     
+    }//GEN-LAST:event_vblMKeyTyped
+
+    private void vblIteracionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_vblIteracionKeyTyped
+        // TODO add your handling code here:
+             char C= evt.getKeyChar();
+     if(Character.isLetter(C))
+     {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         vblIteracion.setCursor(null);
+     }
+     else if((int)evt.getKeyChar()>32 && (int)evt.getKeyChar()<=47
+             ||(int)evt.getKeyChar()>=58 && (int)evt.getKeyChar()<=64
+             || (int)evt.getKeyChar()>=91 && (int)evt.getKeyChar()<=96
+             || (int)evt.getKeyChar()>=123 && (int)evt.getKeyChar()<=255)
+    {
+         getToolkit().beep();
+         evt.consume();
+         JOptionPane.showMessageDialog(this, "Ingrese solo numeros","Error", JOptionPane.ERROR_MESSAGE);
+         vblIteracion.setCursor(null);
+     }
+     
+    }//GEN-LAST:event_vblIteracionKeyTyped
 
     /**
      * @param args the command line arguments
