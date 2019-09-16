@@ -2,6 +2,7 @@
 package interfaz;
 
 import java.awt.Image;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -255,10 +256,11 @@ public class pantallaPrincipal extends javax.swing.JFrame {
             }else{
             
         
-
+            DecimalFormat formato1= new DecimalFormat ("#.00");
         
         
         Double x0,a,c,m,xi;
+        
         
         x0=Double.parseDouble(textoX0.getText());
         xi=x0;
@@ -266,11 +268,18 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         c=Double.parseDouble(vblC.getText());
         m=Double.parseDouble(vblM.getText());
         iter= Integer.parseInt(vblIteracion.getText());
+        
+        formato1.format(x0);
+        formato1.format(xi);
+        formato1.format(a);
+        formato1.format(c);
+        formato1.format(m);
         /*if(xi==x0){
             
         }*/
         //para calcular con formula
         Double b,d,Ui,Ni;
+        
         
         /*b=(a*xi)+c;
         d=b%m;
@@ -292,6 +301,11 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         //Variables variable = new Variables(x0,b,d,Ui,Ni);
         //lista.add(variable);
         
+        //formato1.format(b);
+        //formato1.format(d);
+        //formato1.format(Ui);
+        //formato1.format(Ni);
+        
         mostrar(iter);
         pruebaKS.setEnabled(true);
        }
@@ -309,7 +323,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
                 matris[i][3]=lista.get(i).getUi();
                 matris[i][4]=lista.get(i).getNi();
             }
-        }
+        }        
         tablaaa.setModel(new javax.swing.table.DefaultTableModel(
             matris,
             new String [] {
