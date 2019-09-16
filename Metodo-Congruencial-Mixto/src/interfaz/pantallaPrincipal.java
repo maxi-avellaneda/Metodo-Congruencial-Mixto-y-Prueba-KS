@@ -20,6 +20,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         logoFacu.setIcon(icono);
         //this.repaint();
          setIconImage (new ImageIcon(getClass().getResource("/Imagenes/analisis.jpg")).getImage());
+         pruebaKS.setEnabled(false);
     }
 
     
@@ -58,12 +59,16 @@ public class pantallaPrincipal extends javax.swing.JFrame {
 
         Borrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/borrar_1.png"))); // NOI18N
         Borrar.setText("Borrar");
+        Borrar.setContentAreaFilled(false);
         Borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BorrarActionPerformed(evt);
             }
         });
 
+        jLabel1.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel1.setFont(new java.awt.Font("Wide Latin", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setText("Método: CONGRUENCIAL MIXTO");
 
         jLabel2.setText("Ingresa el valor de las variables...");
@@ -150,12 +155,6 @@ public class pantallaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Generar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Borrar)
-                        .addGap(12, 12, 12))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -171,40 +170,51 @@ public class pantallaPrincipal extends javax.swing.JFrame {
                             .addComponent(vblC)
                             .addComponent(vblM)
                             .addComponent(vblIteracion, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
-                        .addGap(27, 27, 27)))
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(Generar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Borrar)
+                                .addGap(12, 12, 12))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)))))
                 .addComponent(jScrollPane1)
                 .addGap(36, 36, 36))
             .addGroup(layout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addComponent(logoFacu, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pruebaKS, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(298, 298, 298))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pruebaKS, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(298, 298, 298))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 942, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(logoFacu, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                        .addComponent(jLabel2))
-                    .addComponent(pruebaKS, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(logoFacu, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(pruebaKS, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel2)
+                        .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textoX0, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -231,7 +241,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         pack();
@@ -239,6 +249,15 @@ public class pantallaPrincipal extends javax.swing.JFrame {
 
     private void GenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarActionPerformed
         //al hacer click en generar,envio los valores de las variables y las guardo.
+        if((textoX0.getText().equals(""))||(vblA.getText().equals(""))||(vblC.getText().equals(""))||(vblM.getText().equals(""))||(vblIteracion.getText().equals(""))){
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios","Error", JOptionPane.ERROR_MESSAGE);
+            }else{
+            
+        
+
+        
+        
         Double x0,a,c,m,xi;
         
         x0=Double.parseDouble(textoX0.getText());
@@ -274,7 +293,8 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         //lista.add(variable);
         
         mostrar(iter);
-       
+        pruebaKS.setEnabled(true);
+       }
         
     }//GEN-LAST:event_GenerarActionPerformed
     
@@ -319,8 +339,18 @@ public class pantallaPrincipal extends javax.swing.JFrame {
 
     private void pruebaKSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pruebaKSActionPerformed
         // TODO add your handling code here:
+        if((textoX0.getText().equals(""))||(vblA.getText().equals(""))||(vblC.getText().equals(""))||(vblM.getText().equals(""))||(vblIteracion.getText().equals(""))){
+           
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios","Error", JOptionPane.ERROR_MESSAGE);
+            }else{
+            
+        
         pruebaKS prueba = new pruebaKS(lista,iter);
         prueba.setVisible(true);
+        }
+          
+       
        // dispose();
     }//GEN-LAST:event_pruebaKSActionPerformed
 
