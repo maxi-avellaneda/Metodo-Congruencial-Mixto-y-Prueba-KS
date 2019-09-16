@@ -2,7 +2,7 @@
 package metodo.congruencial.mixto;
 
 
-public class Variables {
+public class Variables implements Comparable<Variables>{
     
     Double x0,b,d,Ui,Ni;
 
@@ -54,9 +54,12 @@ public class Variables {
         this.Ni = Ni;
     }
 
-    
-    
+    @Override
+    public int compareTo(Variables t) {
+        return Ui.compareTo(t.getUi());
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
-    
+   
     
 }

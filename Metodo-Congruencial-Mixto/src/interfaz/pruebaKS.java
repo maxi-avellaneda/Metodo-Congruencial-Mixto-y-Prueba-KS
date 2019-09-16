@@ -31,13 +31,13 @@ public class pruebaKS extends javax.swing.JFrame{
         
         DecimalFormat formato1= new DecimalFormat ("#.00");
         
-        
+        Collections.sort(lista);
         
         for(int i=0;i<lista.size();i++){
             Ui=lista.get(i).getUi();
             
             con=j;
-            j++;
+            
             Fn=j/iter;
             FnUi=Fn-Ui;
             mod=Math.abs(FnUi);
@@ -48,9 +48,9 @@ public class pruebaKS extends javax.swing.JFrame{
             formato1.format(Fn);
             formato1.format(FnUi);
             formato1.format(mod);
-            
+            j++;
         }
-        Collections.sort(lista2);
+        //Collections.sort(lista2);
         mostrar(iter);
         max=lista2.get(0).getMod();
         
@@ -60,6 +60,9 @@ public class pruebaKS extends javax.swing.JFrame{
         
         if(max<1.36){
            JOptionPane.showMessageDialog(null, "PRUEBA ACEPTADA", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
+           adivine a = new adivine(lista2);
+           a.setVisible(true);
+           dispose();
        }
        else{
            JOptionPane.showMessageDialog(null, "PRUEBA RECHAZADA", "Operacion Exitosa", JOptionPane.INFORMATION_MESSAGE);
